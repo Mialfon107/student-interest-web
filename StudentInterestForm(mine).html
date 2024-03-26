@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Interest Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <center><h2>Student Interest Form</h2></center>
+  <form id="interestForm" action="#" method="post">
+    <h3>Student Information</h3>
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname" required><br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lname" name="lname" required><br>
+    <label for="grade">Grade Level:</label><br>
+    <select id="grade" name="grade" required>
+      <option value="" disabled selected>Select Grade</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select><br>
+    <h3>Select the clubs that interest you:</h3>
+    <input type="checkbox" id="club1" name="club" value="Math">
+    <label for="club1"> Math League</label><br>
+    <input type="checkbox" id="club2" name="club" value="Sports">
+    <label for="club2"> Sports Club</label><br>
+    <input type="checkbox" id="club3" name="club" value="Drama">
+    <label for="club3"> Drama Club</label><br>
+    <input type="checkbox" id="club4" name="club" value="Coding">
+    <label for="club4"> Coding/Robotics Club</label><br>
+    <input type="checkbox" id="club5" name="club" value="Debate">
+    <label for="club5"> Debate Club</label><br>
+    <input type="checkbox" id="club6" name="club" value="Art">
+    <label for="club6"> Visual Arts Club</label><br>
+    <input type="checkbox" id="club7" name="club" value="Drum">
+    <label for="club7"> Drum Line</label><br><br>
+    <h3>Favorite Subject</h3>
+    <input type="radio" id="subject1" name="subject" value="Math">
+    <label for="subject1"> Math</label><br>
+    <input type="radio" id="subject2" name="subject" value="Science">
+    <label for="subject2"> Science</label><br>
+    <input type="radio" id="subject3" name="subject" value="History">
+    <label for="subject3"> History</label><br><br>
+    <label for="comments">Additional Comments:</label><br>
+    <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+
+  <script>
+    // Client-side form validation
+    document.getElementById('interestForm').addEventListener('submit', function(event) {
+      var form = event.target;
+      var isValid = true;
+
+      // Check if at least one club is selected
+      var clubs = form.querySelectorAll('input[name="club"]:checked');
+      if (clubs.length === 0) {
+        alert('Please select at least one club.');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
